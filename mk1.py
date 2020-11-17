@@ -5,7 +5,7 @@ from PIL import Image
 import numpy as np
 import os
 
-new_model = tf.keras.models.load_model('my_model')
+new_model = tf.keras.models.load_model('saved_model')
 
 classes_name = ['Apple Scab Leaf', 'Apple leaf', 'Apple rust leaf', 'Bell_pepper leaf', 'Bell_pepper leaf spot', 'Blueberry leaf', 'Cherry leaf', 'Corn Gray leaf spot', 'Corn leaf blight', 'Corn rust leaf', 'Peach leaf', 'Potato leaf early blight', 'Potato leaf late blight', 'Raspberry leaf', 'Soyabean leaf', 'Squash Powdery mildew leaf', 'Strawberry leaf', 'Tomato Early blight leaf', 'Tomato Septoria leaf spot', 'Tomato leaf', 'Tomato leaf bacterial spot', 'Tomato leaf late blight', 'Tomato leaf mosaic virus', 'Tomato leaf yellow virus', 'Tomato mold leaf', 'Tomato two spotted spider mites leaf', 'grape leaf', 'grape leaf black rot']
 
@@ -92,7 +92,7 @@ class Ui_Dialog(object):
         fname = QtWidgets.QFileDialog.getOpenFileName(None, 'Open file', '.', "Image files (*.jpg *.png)")
         image_path = fname[0]
         img = Image.open(image_path)
-        img = img.resize((160, 160), Image.ANTIALIAS)
+        img = img.resize((256,256), Image.ANTIALIAS)
         img  = image.img_to_array(img)
         img  = img.reshape((1,) + img.shape)
         predictions = new_model.predict(img)
@@ -102,7 +102,7 @@ class Ui_Dialog(object):
         print(predictions)
         self.result.setText(predictions)
         pixmap = QtGui.QPixmap(image_path)
-        scaled_pixmap = pixmap.scaled(64, 64)
+        scaled_pixmap = pixmap.scaled(500,500)
         self.showimage.setPixmap(scaled_pixmap)
 
     def getfolder(self):
@@ -116,7 +116,7 @@ class Ui_Dialog(object):
 
         image_path = images_list[idx]
         img = Image.open(image_path)
-        img = img.resize((160, 160), Image.ANTIALIAS)
+        img = img.resize((256,256), Image.ANTIALIAS)
         img  = image.img_to_array(img)
         img  = img.reshape((1,) + img.shape)
         predictions = new_model.predict(img)
@@ -126,7 +126,7 @@ class Ui_Dialog(object):
         print(predictions)
         self.result.setText(predictions)
         pixmap = QtGui.QPixmap(image_path)
-        scaled_pixmap = pixmap.scaled(64, 64, QtCore.Qt.KeepAspectRatio)
+        scaled_pixmap = pixmap.scaled(500,500, QtCore.Qt.KeepAspectRatio)
         self.showimage.setPixmap(scaled_pixmap)
 
     def nextimage(self):
@@ -138,7 +138,7 @@ class Ui_Dialog(object):
 
         image_path = images_list[idx]
         img = Image.open(image_path)
-        img = img.resize((160, 160), Image.ANTIALIAS)
+        img = img.resize((256,256), Image.ANTIALIAS)
         img  = image.img_to_array(img)
         img  = img.reshape((1,) + img.shape)
         predictions = new_model.predict(img)
@@ -148,7 +148,7 @@ class Ui_Dialog(object):
         print(predictions)
         self.result.setText(predictions)
         pixmap = QtGui.QPixmap(image_path)
-        scaled_pixmap = pixmap.scaled(64, 64, QtCore.Qt.KeepAspectRatio)
+        scaled_pixmap = pixmap.scaled(500,500, QtCore.Qt.KeepAspectRatio)
         self.showimage.setPixmap(scaled_pixmap)
 
     def previousimage(self):
@@ -159,7 +159,7 @@ class Ui_Dialog(object):
             idx = 0
         image_path = images_list[idx]
         img = Image.open(image_path)
-        img = img.resize((160, 160), Image.ANTIALIAS)
+        img = img.resize((256,256), Image.ANTIALIAS)
         img  = image.img_to_array(img)
         img  = img.reshape((1,) + img.shape)
         predictions = new_model.predict(img)
@@ -169,7 +169,7 @@ class Ui_Dialog(object):
         print(predictions)
         self.result.setText(predictions)
         pixmap = QtGui.QPixmap(image_path)
-        scaled_pixmap = pixmap.scaled(64, 64, QtCore.Qt.KeepAspectRatio)
+        scaled_pixmap = pixmap.scaled(500,500, QtCore.Qt.KeepAspectRatio)
         self.showimage.setPixmap(scaled_pixmap)
 
     def closeEvent(self, event):
