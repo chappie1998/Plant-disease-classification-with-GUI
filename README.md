@@ -11,7 +11,7 @@ The model was trained using ResNet50 for classification.
 ##### Results:
   <img src="./images/results.png" width="600" height="550">
 
-
+  
 ### Types of Plants and Diseases - The model classifies:
 1. Apple Scab Leaf 
 2. Apple leaf
@@ -43,7 +43,7 @@ The model was trained using ResNet50 for classification.
 28. Grape leaf black rot
 
 ##### Sample data:
-  <img src="./images/sample.png" width="766" height="600">
+  <img src="./images/sample.png" width="600" height="600">
 
 ### How to use GUI:
 - Clone the repository
@@ -56,7 +56,8 @@ The model was trained using ResNet50 for classification.
   ```bash
   python mk1.py
   ```
-   You can try widgets in the GUI with ease. 
+   You can try widgets in the GUI with ease.
+  <img src="./images/gui2.png" width="500" height="500">
    
 ### Custom GUI 
  If you want to deploy any classification models through this simple GUI, change the load_model path in mk1.py at line 8 and resize image in get_image function.
