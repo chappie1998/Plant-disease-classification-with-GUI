@@ -1,4 +1,4 @@
-# Plant-disease-classification-with-GUI
+# Plant-Disease-Classification-with-GUI
 
 This Plant Disease Classification with GUI is an model deploying application, where model runs inference on images and classifies plant disease with accuracy.
 
@@ -50,7 +50,7 @@ The model was trained using ResNet50 for classification.
 - Navigate to the Repo directory.
 - Run below command for required libraries.
   ```bash
-  . requirement.txt
+  . requirements.txt
   ```
 - Run following command for GUI:
   ```bash
